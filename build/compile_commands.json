@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/build",
+  "command": "/usr/bin/clang++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__ -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.0 -isystem /opt/homebrew/include/wx-3.0 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.0 -o CMakeFiles/membot.dir/src/chatbot.cpp.o -c \"/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/src/chatbot.cpp\"",
+  "file": "/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/src/chatbot.cpp",
+  "output": "CMakeFiles/membot.dir/src/chatbot.cpp.o"
+},
+{
+  "directory": "/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/build",
+  "command": "/usr/bin/clang++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__ -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.0 -isystem /opt/homebrew/include/wx-3.0 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.0 -o CMakeFiles/membot.dir/src/chatgui.cpp.o -c \"/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/src/chatgui.cpp\"",
+  "file": "/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/src/chatgui.cpp",
+  "output": "CMakeFiles/membot.dir/src/chatgui.cpp.o"
+},
+{
+  "directory": "/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/build",
+  "command": "/usr/bin/clang++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__ -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.0 -isystem /opt/homebrew/include/wx-3.0 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.0 -o CMakeFiles/membot.dir/src/chatlogic.cpp.o -c \"/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/src/chatlogic.cpp\"",
+  "file": "/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/src/chatlogic.cpp",
+  "output": "CMakeFiles/membot.dir/src/chatlogic.cpp.o"
+},
+{
+  "directory": "/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/build",
+  "command": "/usr/bin/clang++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__ -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.0 -isystem /opt/homebrew/include/wx-3.0 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.0 -o CMakeFiles/membot.dir/src/graphedge.cpp.o -c \"/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/src/graphedge.cpp\"",
+  "file": "/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/src/graphedge.cpp",
+  "output": "CMakeFiles/membot.dir/src/graphedge.cpp.o"
+},
+{
+  "directory": "/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/build",
+  "command": "/usr/bin/clang++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXMAC__ -D__WXOSX_COCOA__ -D__WXOSX__ -isystem /opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.0 -isystem /opt/homebrew/include/wx-3.0 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.0 -o CMakeFiles/membot.dir/src/graphnode.cpp.o -c \"/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/src/graphnode.cpp\"",
+  "file": "/Users/lunayang/ndcpp/3_ Memory/project/CppND-Memory-Management-Chatbot/src/graphnode.cpp",
+  "output": "CMakeFiles/membot.dir/src/graphnode.cpp.o"
+}
+]

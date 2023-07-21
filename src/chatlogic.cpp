@@ -14,7 +14,7 @@
 
 ChatLogic::ChatLogic()
 {
-    //// STUDENT CODE
+    //// TODO: STUDENT CODE
     ////
 
     // create instance of chatbot
@@ -29,7 +29,7 @@ ChatLogic::ChatLogic()
 
 ChatLogic::~ChatLogic()
 {
-    //// STUDENT CODE
+    //// TODO: STUDENT CODE
     ////
 
     // delete chatbot instance
@@ -123,7 +123,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                     // node-based processing
                     if (type->second == "NODE")
                     {
-                        //// STUDENT CODE
+                        //// TODO: STUDENT CODE
                         ////
 
                         // check if node with this ID exists already
@@ -146,7 +146,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                     // edge-based processing
                     if (type->second == "EDGE")
                     {
-                        //// STUDENT CODE
+                        //// TODO: STUDENT CODE
                         ////
 
                         // find tokens for incoming (parent) and outgoing (child) node
@@ -193,7 +193,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
         return;
     }
 
-    //// STUDENT CODE
+    //// TODO: STUDENT CODE
     ////
 
     // identify root node
