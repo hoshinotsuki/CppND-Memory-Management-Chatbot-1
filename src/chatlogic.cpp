@@ -16,11 +16,12 @@ ChatLogic::ChatLogic() {
   ////
 
   _nodes = std::vector<std::unique_ptr<GraphNode>>();
-  _edges =  std::vector<GraphEdge *>();
+  _edges = std::vector<GraphEdge *>();
+
   // create instance of chatbot
   _chatBot = new ChatBot("../images/chatbot.png");
 
-  // add pointer to chatlogic so that chatbot answers can be passed on to the
+  // pass pointer to chatlogic to chatbot so that chatbot answers can be passed on to the
   // GUI
   _chatBot->SetChatLogicHandle(this);
 
@@ -121,7 +122,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
 
           // node-based processing
           if (type->second == "NODE") {
-            ////  STUDENT CODE 
+            ////  STUDENT CODE
             ////
 
             // check if node with this ID exists already
@@ -172,7 +173,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
                   });
               auto childNode = std::find_if(
                   _nodes.begin(), _nodes.end(),
-                  [&childToken](std::unique_ptr<GraphNode> & node) {
+                  [&childToken](std::unique_ptr<GraphNode> &node) {
                     return node.get()->GetID() == std::stoi(childToken->second);
                   });
 
@@ -188,7 +189,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
               // store reference in child node and parent node
               (*childNode)->AddEdgeToParentNode(edge);
 
-              (*parentNode)->AddEdgeToChildNode(std::make_unique<GraphEdge>(id));
+              (*parentNode)
+                  ->AddEdgeToChildNode(std::make_unique<GraphEdge>(id));
             }
 
             ////
@@ -227,8 +229,11 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
   }
 
   // add chatbot to graph root node
-  _chatBot->SetRootNode(rootNode);
-  rootNode->MoveChatbotHere(std::move(*_chatBot));
+
+  ChatBot chatbot_obj = ChatBot("../images/chatbot.png");
+  chatbot_obj.SetChatLogicHandle(this);
+  chatbot_obj.SetRootNode(rootNode);
+  rootNode->MoveChatbotHere(std::move(chatbot_obj));
 
   ////
   //// EOF STUDENT CODE
