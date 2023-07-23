@@ -13,7 +13,7 @@ class GraphEdge;
 class GraphNode
 {
 private:
-    ////  STUDENT CODE
+    //// STUDENT CODE
     ////
 
     // data handles (owned)
@@ -47,7 +47,7 @@ public:
     void AddEdgeToParentNode(GraphEdge *edge);
     void AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge);
 
-    ////   STUDENT CODE
+    //// STUDENT CODE
     ////
 
       void MoveChatbotHere(ChatBot chatbot);
