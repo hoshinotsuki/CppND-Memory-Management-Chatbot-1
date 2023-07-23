@@ -12,9 +12,11 @@
 #include "graphnode.h"
 
 ChatLogic::ChatLogic() {
-  //// TODO: STUDENT CODE
+  ////  STUDENT CODE
   ////
-  
+
+  _nodes = std::vector<std::unique_ptr<GraphNode>>();
+  _edges =  std::vector<GraphEdge *>();
   // create instance of chatbot
   _chatBot = new ChatBot("../images/chatbot.png");
 
@@ -27,15 +29,18 @@ ChatLogic::ChatLogic() {
 }
 
 ChatLogic::~ChatLogic() {
-  //// TODO: STUDENT CODE
+  ////  STUDENT CODE
   ////
 
   // delete chatbot instance
   delete _chatBot;
 
   // delete all nodes
-
+  for (auto i = _nodes.begin(); i != _nodes.end(); i++)
+    delete (*i).get();
   // delete all edges
+  for (auto i = _edges.begin(); i != _edges.end(); i++)
+    delete *i;
 
   ////
   //// EOF STUDENT CODE
@@ -116,17 +121,19 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
 
           // node-based processing
           if (type->second == "NODE") {
-            //// TODO: STUDENT CODE (done)
+            ////  STUDENT CODE 
             ////
 
             // check if node with this ID exists already
-            auto newNode = std::find_if(
-                _nodes.begin(), _nodes.end(),
-                [&id](std::unique_ptr<GraphNode> node) { node.get()->GetID() == id; });
+            auto newNode =
+                std::find_if(_nodes.begin(), _nodes.end(),
+                             [&id](std::unique_ptr<GraphNode> &node) {
+                               return node->GetID() == id;
+                             });
 
             // create new element if ID does not yet exist
             if (newNode == _nodes.end()) {
-              _nodes.emplace_back(std::make_unique<std::unique_ptr<GraphNode*>>(new GraphNode(id)));
+              _nodes.emplace_back(std::make_unique<GraphNode>(id));
               newNode = _nodes.end() - 1; // get iterator to last element
 
               // add all answers to current node
@@ -139,7 +146,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
 
           // edge-based processing
           if (type->second == "EDGE") {
-            //// TODO: STUDENT CODE
+            ////  STUDENT CODE
 
             ////
 
@@ -159,18 +166,20 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
               // get iterator on incoming and outgoing node via ID search
               auto parentNode = std::find_if(
                   _nodes.begin(), _nodes.end(),
-                  [&parentToken](std::unique_ptr<GraphNode> node) {
-                    return node.get()->GetID() == std::stoi(parentToken->second);
+                  [&parentToken](std::unique_ptr<GraphNode> &node) {
+                    return node.get()->GetID() ==
+                           std::stoi(parentToken->second);
                   });
               auto childNode = std::find_if(
-                  _nodes.begin(), _nodes.end(), [&childToken](std::unique_ptr<GraphNode> node) {
-                    return  node.get()->GetID() == std::stoi(childToken->second);
+                  _nodes.begin(), _nodes.end(),
+                  [&childToken](std::unique_ptr<GraphNode> & node) {
+                    return node.get()->GetID() == std::stoi(childToken->second);
                   });
 
               // create new edge
               GraphEdge *edge = new GraphEdge(id);
-              edge->SetChildNode(*childNode);
-              edge->SetParentNode(*parentNode);
+              edge->SetChildNode((*childNode).get());
+              edge->SetParentNode((*parentNode).get());
               _edges.push_back(edge);
 
               // find all keywords for current node
@@ -198,7 +207,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
     return;
   }
 
-  //// TODO: STUDENT CODE
+  ////  STUDENT CODE
 
   ////
 
@@ -206,10 +215,10 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
   GraphNode *rootNode = nullptr;
   for (auto it = std::begin(_nodes); it != std::end(_nodes); ++it) {
     // search for nodes which have no incoming edges
-    if ((*it)->GetNumberOfParents() == 0) {
+    if (((*it).get())->GetNumberOfParents() == 0) {
 
       if (rootNode == nullptr) {
-        rootNode = *it; // assign current node to root
+        rootNode = (*it).get(); // assign current node to root
       } else {
         std::cout << "ERROR : Multiple root nodes detected" << std::endl;
       }
