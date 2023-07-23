@@ -187,7 +187,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
 
               // store reference in child node and parent node
               (*childNode)->AddEdgeToParentNode(edge);
-              (*parentNode)->AddEdgeToChildNode(edge);
+
+              (*parentNode)->AddEdgeToChildNode(std::make_unique<GraphEdge>(id));
             }
 
             ////
@@ -227,7 +228,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
 
   // add chatbot to graph root node
   _chatBot->SetRootNode(rootNode);
-  rootNode->MoveChatbotHere(_chatBot);
+  rootNode->MoveChatbotHere(std::move(*_chatBot));
 
   ////
   //// EOF STUDENT CODE
