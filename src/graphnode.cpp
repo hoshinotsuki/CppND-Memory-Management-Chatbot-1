@@ -20,24 +20,22 @@ void GraphNode::AddEdgeToParentNode(GraphEdge *edge) {
 }
 
 void GraphNode::AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge) {
-  _childEdges.push_back(std::move(edge)); // push_back is copying instance. need to transfer
+  _childEdges.push_back(
+      std::move(edge)); // push_back is copying instance. need to transfer
                         // ownership for unique_ptr.
 }
 
 ////   STUDENT CODE
 ////
-void GraphNode::MoveChatbotHere(ChatBot chatbot) {
-  
-   _chatBot = std::move(chatbot);
-
+void GraphNode::MoveChatbotHere(ChatBot _chatbot) {
+  _chatBot = std::move(_chatbot); 
   _chatBot.SetCurrentNode(this);
 }
 
 void GraphNode::MoveChatbotToNewNode(GraphNode *newNode) {
-  newNode->MoveChatbotHere(std::move(_chatBot)); 
+  newNode->MoveChatbotHere(std::move(_chatBot));
 }
 
-  
 ////
 //// EOF STUDENT CODE
 
