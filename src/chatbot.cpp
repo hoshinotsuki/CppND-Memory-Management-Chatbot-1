@@ -40,7 +40,7 @@ ChatBot::~ChatBot() {
   }
 }
 
-//  Copy Constructor
+//  Copy Constructor (for practice of rules of five)
 ChatBot::ChatBot(ChatBot &source) {
   std::cout << "ChatBot Copy Constructor" << std::endl;
 
@@ -50,7 +50,7 @@ ChatBot::ChatBot(ChatBot &source) {
   delete source._image;
 }
 
-//  Copy assignment operator.
+//  Copy assignment operator (for practice of rules of five)
 ChatBot &ChatBot::operator=(ChatBot &source) {
   std::cout << "ChatBot Copy Assignment Operator" << std::endl;
 
@@ -64,6 +64,7 @@ ChatBot &ChatBot::operator=(ChatBot &source) {
   delete source._image;
   return *this;
 }
+
 //  Move Constructor
 ChatBot::ChatBot(ChatBot &&source)
     : _chatLogic{source._chatLogic}, _currentNode(source._currentNode),
@@ -78,20 +79,22 @@ ChatBot::ChatBot(ChatBot &&source)
 }
 
 // Move Assignment Operator
-ChatBot &ChatBot::operator=(ChatBot &&rhs) {
+ChatBot &ChatBot::operator=(ChatBot &&source) {
   std::cout << "Move Assignment Operator" << std::endl;
-  if (this == &rhs)
+  if (this == &source)
     return *this;
-  _chatLogic = rhs._chatLogic;
-  _rootNode = rhs._rootNode;
-  _image = rhs._image;
+  _chatLogic = source._chatLogic;
+  _rootNode = source._rootNode;
+  _image = source._image;
   _chatLogic->SetChatbotHandle(this);
   // invalidate data handles
-  rhs._chatLogic = nullptr;
-  rhs._rootNode = nullptr;
-  rhs._image = nullptr;
+  source._chatLogic = nullptr;
+  source._currentNode = nullptr;
+  source._rootNode = nullptr;
+  source._image = nullptr;
   return *this;
-} 
+}
+
 void ChatBot::ReceiveMessageFromUser(std::string message) {
   // loop over all edges and keywords and compute Levenshtein distance to query
   typedef std::pair<GraphEdge *, int> EdgeDist;
